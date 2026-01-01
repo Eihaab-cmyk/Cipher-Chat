@@ -71,8 +71,7 @@ the same group key                 |                     of the group key
 
 ### Step 1: Clone the Repository
 ```bash
-git clone <your-repository-url>
-cd e2ee-chat-app
+git clone https://github.com/Eihaab-cmyk/Cipher-Chat.git
 ```
 
 ### Step 2: Create Virtual Environment
@@ -88,7 +87,8 @@ source venv/bin/activate
 
 ### Step 3: Install Dependencies
 ```bash
-pip install django channels channels-redis pycryptodome
+cd chat_project
+pip install -r requirements.txt
 ```
 
 ### Step 4: Configure Redis (for Channels)
@@ -123,11 +123,9 @@ python manage.py createsuperuser
 
 ### Step 7: Run the Development Server
 ```bash
-# Terminal 1: Start Django
-python manage.py runserver
 
-# Terminal 2: Start Daphne (for WebSockets) - if needed
-# daphne -p 8001 your_project.asgi:application
+# Terminal: Start Daphne (for WebSockets)
+daphne -p 8000 chat_project.asgi:application
 ```
 
 Visit `http://localhost:8000` in your browser.
@@ -135,7 +133,7 @@ Visit `http://localhost:8000` in your browser.
 ## 📁 Project Structure
 
 ```
-e2ee-chat-app/
+chat_project/
 ├── chat/                      # Main chat application
 │   ├── models.py             # Database models (Chat, Message, UserKeyPair)
 │   ├── views.py              # API endpoints
@@ -148,8 +146,7 @@ e2ee-chat-app/
 │   ├── views.py              # Login/signup/logout
 │   └── forms.py              # User forms
 ├── manage.py
-├── requirements.txt
-└── README.md
+└── requirements.txt
 ```
 
 ## Usage
